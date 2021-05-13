@@ -1,0 +1,10 @@
+<table class="table table-bordered">
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <th class="text-center" style="width: 10%;"><%= course.number %></th>
+        <td><%= course.text %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

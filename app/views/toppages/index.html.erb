@@ -1,11 +1,19 @@
-<div class="center jumbotron">
+<div id="main_visual" class="center jumbotron">
   <div class="text-center">
     <h1>Welcome to the FingOut</h1>
-    
     <% if logged_in? %>
       <p>ログイン完了ユーザ: <%= current_user.name %></p>
     <% else %>
       <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
     <% end %>
   </div>
+</div>
+
+<div class="container" style="display: flex;">
+  <div id="main" class="col-sm-10">
+    <%= render 'plans/plans' %>
+  </div>
+  <aside id="sidebar" class="col-sm-2">
+    <p>サイドバー</p>
+  </aside>
 </div>

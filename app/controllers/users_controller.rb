@@ -7,6 +7,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    #@plan = current_user.plans.build # form_with用
+    #@plans = current_user.plans.order(id: :desc).page(params[:page])
+    
   end
 
   def new

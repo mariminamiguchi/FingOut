@@ -1,0 +1,7 @@
+<h1 class="text-center" style="margin: 40px;"><%= @plan.name %></h1>
+  <div>
+    <p style="float: left; margin-bottom: 20px; margin-right: 40px"><%= attachment_image_tag @plan, :topphoto, format: 'jpeg', size: "461x346" %></p>
+    <p><%= @plan.outline %></p>
+  </div>
+
+  <div style="clear: left;"><%= render 'courses/courses' %></div>
