@@ -12,6 +12,11 @@
       <%= f.text_area :text, class: 'form-control' %>
     </div>
     
+    <div class="form-group">
+      <%= f.label :photo, 'photo' %><br>
+      <%= f.attachment_field :photo %>
+    </div>
+    
     <%= f.submit 'courses', class: 'btn btn-primary btn-block' %>
   <% end %>
 </div> 

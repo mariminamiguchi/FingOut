@@ -5,3 +5,11 @@
   </div>
 
   <div style="clear: left;"><%= render 'courses/courses' %></div>
+  <% if current_user == @plan.user %>
+    <%= link_to 'プランを削除', plan_path(@plan.id), method: :delete, data: { confirm: 'プランを削除してよろしいですか?' }, class: 'btn btn-danger btn-sm' %>
+  <% end %>
+  
+  <% if current_user == @course.user %>
+    <%= link_to 'コースを追加', plan_courses_post_path(@plan.id), class: 'btn btn-lg btn-primary' %>
+  <% end %>
+  

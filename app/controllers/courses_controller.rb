@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   before_action :require_user_logged_in, except: [:index, :show]
+  before_action :correct_user, only: [:new, :create, :destroy]
   
   def index
     @courses = Course.order(id: :desc)
@@ -25,6 +26,9 @@ class CoursesController < ApplicationController
   end
 
   def destroy
+    @course.destroy
+    flash[:success] = 'コースを削除しました。'
+    redirect_back(fallback_location: root_path)
   end
   
   private
@@ -33,6 +37,13 @@ class CoursesController < ApplicationController
   end
   
   def course_params
-    params.require(:course).permit(:number, :text, :outline)
+    params.require(:course).permit(:number, :text, :outline, :photo)
+  end
+  
+  def correct_user
+    @course = current_user.courses.find_by(id: params[:id])
+    unless @course
+      redirect_to root_url
+    end
   end
 end

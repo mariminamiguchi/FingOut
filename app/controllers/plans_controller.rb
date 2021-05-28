@@ -1,5 +1,6 @@
 class PlansController < ApplicationController
   before_action :require_user_logged_in, except: [:index, :show]
+  before_action :correct_user, only: [:destroy]
   
   def index
     @plans = Plan.order(id: :desc).page(params[:page]).per(25)
@@ -18,7 +19,7 @@ class PlansController < ApplicationController
     @plan = current_user.plans.build(plan_params)
     if @plan.save
       flash[:success] = 'プランを投稿しました。'
-      redirect_to root_url
+      redirect_to action: :show, id: @plan.id
     else
       @plans = current_user.plans.order(id: :desc).page(params[:page])
       flash.now[:danger] = 'プランの投稿に失敗しました。'
@@ -27,10 +28,21 @@ class PlansController < ApplicationController
   end
 
   def destroy
+    @plan.destroy
+    flash[:success] = 'プランを削除しました。'
+    redirect_to root_url
   end
   
   private
   def plan_params
     params.require(:plan).permit(:name, :outline, :topphoto)
   end
+  
+  def correct_user
+    @plan = current_user.plans.find_by(id: params[:id])
+    unless @plan
+      redirect_to root_url
+    end
+  end
+
 end

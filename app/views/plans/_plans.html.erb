@@ -1,7 +1,7 @@
 <div class="row">
 	  <% @plans.each do |plan| %>
 	    <div class="card" style="width: 18rem;">
-	    	<div class="card-img-top"><%= attachment_image_tag plan, :topphoto, format: 'jpeg', size: "284x250" %></div>
+	    	<div class="card-img-top"><div class="text-center"><%= attachment_image_tag plan, :topphoto, format: 'jpeg', size: "284x250" %></div></div>
 	      <div class="card-body">
 	      	<h5 class="card-title"><%= plan.name %></h5>
 	      	<p class="card-text"><%= plan.outline %></p>
