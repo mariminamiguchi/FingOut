@@ -1,0 +1,21 @@
+<div class="row">
+  <aside class="col-sm-4">
+    <div class="text-center" style="margin: 20px;">
+      <img class="rounded-circle img-fluid" src="<%= gravatar_url(@user, { size: 250 }) %>" alt="">
+    </div>
+        <h3 style="text-align: center; margin-bottom: 20px;"><%= @user.name %></h3>
+    <% if current_user == @user%>
+      <%= link_to 'プランを投稿する', post_path, class: 'btn btn-primary btn-block' %>
+    <% else %>
+      <%= render 'relationships/follow_button', user: @user %>
+    <% end %>
+  </aside>
+  <div class="col-sm-8">
+    <ul class="nav nav-tabs nav-justified mb-3">
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Plans  <span class="badge badge-secondary"><%= @count_plans %></span></a></li>
+      <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">Followings  <span class="badge badge-secondary"><%= @count_followings %></span></a></li>
+      <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">Followers  <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
+    </ul>
+    <%= render 'users', users: @followings %>
+  </div>
+</div>
