@@ -5,6 +5,8 @@
   </div>
 
   <div style="clear: left;"><%= render 'courses/courses' %></div>
+  
+  <%= render 'favorites/like_button', plan: @plan %>
   <% if current_user == @plan.user %>
     <%= link_to 'プランを削除', plan_path(@plan.id), method: :delete, data: { confirm: 'プランを削除してよろしいですか?' }, class: 'btn btn-danger btn-sm' %>
   <% end %>

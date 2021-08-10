@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_07_064828) do
+ActiveRecord::Schema.define(version: 2021_08_08_063743) do
 
   create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "number"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 2021_08_07_064828) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["plan_id"], name: "index_courses_on_plan_id"
+  end
+
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "plan_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plan_id"], name: "index_favorites_on_plan_id"
+    t.index ["user_id", "plan_id"], name: "index_favorites_on_user_id_and_plan_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -51,6 +61,8 @@ ActiveRecord::Schema.define(version: 2021_08_07_064828) do
   end
 
   add_foreign_key "courses", "plans"
+  add_foreign_key "favorites", "plans"
+  add_foreign_key "favorites", "users"
   add_foreign_key "plans", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"

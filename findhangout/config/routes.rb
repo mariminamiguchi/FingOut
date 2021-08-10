@@ -14,14 +14,17 @@ Rails.application.routes.draw do
     member do
       get :followings
       get :followers
+      get :likings
     end
   end
   
   resources :plans, only: [:index, :show, :create, :destroy] do
     get 'courses_post', to: 'courses#new'
+    get :likers
     post 'courses_post', to: 'courses#create'
     resources :courses, only: [:index, :destroy]
   end
   
   resources :relationships, only: [:create, :destroy]
+  resources :favorites, only: [:create, :destroy]
 end
