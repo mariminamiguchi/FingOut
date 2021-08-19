@@ -1,5 +1,3 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
 <div class="text-center">
   <h1>Log in</h1>
 </div>
@@ -19,9 +17,9 @@
         <%= f.password_field :password, class: 'form-control' %>
       </div>
       
-      <%= f.submit 'Log in', class: 'btn btn-primary btn-block' %>
+      <%= f.submit 'ログイン', class: 'btn btn-primary btn-block' %>
     <% end %>
     
-    <P>New user? <%= link_to 'Sign up now!', signup_path %></P>
+    <P>ユーザー登録がまだの方→ <%= link_to '登録する', signup_path %></P>
   </div>
 </div>

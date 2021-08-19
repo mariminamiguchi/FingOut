@@ -1,3 +1,141 @@
-// Place all the styles related to the plans controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// .container {
+//     margin: 10px 0;
+// }
+
+.plan {
+    width: 100%;
+    margin: 5px auto;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+h5 {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-bottom: 1px solid #000000;
+    color: #000000;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.photospace {
+    margin: 0;
+    width: 100%;
+    height: 250px;
+}
+
+.photospace img {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#outline {
+    margin: 0 auto;
+    width: 100%;
+    height: 70px;
+}
+
+#outline p {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 0;
+    color: #000000;
+    font-family: 'Noto Sans JP', sans-serif;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+p {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 0;
+    color: #000000;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.by {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+}
+
+h1 {
+    font-size: 36px;
+    font-size: calc(2.4rem + ((1vw - 0.64rem) * 2.1429));
+    line-height: 1.3;
+}
+
+.head {
+    margin: 20px 0;
+    width: 100%;
+}
+
+.topphoto {
+    margin: 0;
+    width: 100%;
+    height: 250px;
+}
+
+.topphoto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#planoutline {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.top-button-area {
+    text-align: right;
+}
+
+.button-area {
+    text-align: center;
+    padding: 20px 30px;
+    margin: 20px 0;
+    background-color: #F8F9FA;
+}
+
+
+@media (min-width: 1200px) {
+    h1 {
+        font-size: 3.6rem;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    body {
+        h1 {
+            font-size: 2.4rem;
+        }
+    }
+    
+    .plan {
+        width: 49%;
+        margin: 5px auto;
+    }
+    
+    .photospace img {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .topphoto {
+        width: 100%;
+        height: auto;
+    }
+}
+

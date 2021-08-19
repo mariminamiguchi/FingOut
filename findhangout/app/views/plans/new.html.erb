@@ -2,20 +2,20 @@
     <%= form_with(model: @plan, local: true) do |f| %>
       
       <div class="form-group">
-        <%= f.label :name, 'Name' %>
+        <%= f.label :name, 'プラン名' %>
         <%= f.text_field :name, class: 'form-control' %>
       </div>
       
       <div class="form-group">
-        <%= f.label :outline, 'Outline' %>
+        <%= f.label :outline, '概要' %>
         <%= f.text_area :outline, class: 'form-control' %>
       </div>
       
       <div class="form-group">
-        <%= f.label :topphoto, 'Topphoto' %><br>
+        <%= f.label :topphoto, 'トップ画像' %><br>
         <%= f.attachment_field :topphoto %>
       </div>
       
-      <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+      <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
     <% end %>
-  </div>
+</div>

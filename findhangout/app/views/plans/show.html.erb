@@ -1,18 +1,28 @@
-<h1 class="text-center" style="margin: 40px;"><%= @plan.name %></h1>
-  <div>
-    <p style="float: left; margin-bottom: 20px; margin-right: 40px"><%= attachment_image_tag @plan, :topphoto, format: 'jpeg', size: "461x346" %></p>
-    <p><%= @plan.outline %></p>
+<div class="container">
+  <div class="row">
+    <div id="main" class="col-md-9">
+      <div class="head">
+        <h1 style="margin: 0 auto;"><%= @plan.name %></h1>
+      </div>
+      <div class="top-button-area">
+        <%= render 'favorites/like_button', plan: @plan %>
+      </div>
+      
+      <div class="topphoto"><%= attachment_image_tag @plan, :topphoto, format: 'jpeg'%></div>
+      <p id="planoutline"><%= @plan.outline %></p>
+      <div style="clear: left;"><%= render 'courses/courses' %></div>
+        <div class="button-area">
+          <% if current_user == @plan.user %>
+            <%= link_to 'コースを追加', plan_courses_post_path(@plan.id), class: 'btn btn-outline-primary' %>
+          <% end %>
+          <% if current_user == @plan.user %>
+            <%= link_to 'プランを削除', plan_path(@plan.id), method: :delete, data: { confirm: 'プランを削除してよろしいですか?' }, class: 'btn btn-outline-danger' %>
+          <% end %>
+        </div>
+      </div>
+      
+      <aside id="sidebar" class="col-md-3">
+        <p>サイドバー</p>
+      </aside>
   </div>
-
-  <div style="clear: left;"><%= render 'courses/courses' %></div>
-  
-  <%= render 'favorites/like_button', plan: @plan %>
-  <% if current_user == @plan.user %>
-    <%= link_to 'プランを削除', plan_path(@plan.id), method: :delete, data: { confirm: 'プランを削除してよろしいですか?' }, class: 'btn btn-danger btn-sm' %>
-  <% end %>
-  
-  
-  <% if current_user == @plan.user %>
-    <%= link_to 'コースを追加', plan_courses_post_path(@plan.id), class: 'btn btn-lg btn-primary' %>
-  <% end %>
-  
+</div>

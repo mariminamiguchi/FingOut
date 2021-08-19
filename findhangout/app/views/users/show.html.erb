@@ -1,5 +1,5 @@
 <div class="row">
-  <aside class="col-sm-4">
+  <aside class="col-sm-2">
     <div class="text-center" style="margin: 20px;">
       <img class="rounded-circle img-fluid" src="<%= gravatar_url(@user, { size: 250 }) %>" alt="">
     </div>
@@ -10,7 +10,7 @@
       <%= render 'relationships/follow_button', user: @user %>
     <% end %>
   </aside>
-  <div class="col-sm-8">
+  <div class="col-sm-10">
     <ul class="nav nav-tabs nav-justified mb-3">
       <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Plans  <span class="badge badge-secondary"><%= @count_plans %></span></a></li>
       <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">Followings  <span class="badge badge-secondary"><%= @count_followings %></span></a></li>

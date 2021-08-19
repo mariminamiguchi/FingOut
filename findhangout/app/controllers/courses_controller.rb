@@ -41,7 +41,7 @@ class CoursesController < ApplicationController
   end
   
   def course_params
-    params.require(:course).permit(:id, :number, :text, :outline, :photo)
+    params.require(:course).permit(:id, :number, :headding, :text, :outline, :photo)
   end
   
   def correct_user

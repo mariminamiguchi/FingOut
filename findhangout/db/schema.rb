@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_08_063743) do
+ActiveRecord::Schema.define(version: 2021_08_19_083812) do
 
   create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "number"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2021_08_08_063743) do
     t.bigint "plan_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "headding"
     t.index ["plan_id"], name: "index_courses_on_plan_id"
   end
 

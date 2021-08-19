@@ -1,16 +1,15 @@
-<table class="table table-bordered">
-  <tbody>
-    <% @courses.each do |course| %>
-      <tr>
-        <th class="text-center" style="width: 10%;"><%= course.number %></th>
-        <td style="width: 461px;"><%= attachment_image_tag course, :photo, format: 'jpeg', size: "461x346" %></td>
-        <td>
-          <%= course.text %>
-          <% if current_user == @plan.user %>
-            <%= link_to 'コースを削除', plan_course_path(@plan,course), method: :delete, data: {confirm: 'コースを削除してよろしいですか？' }, class: 'btn btn-danger btn-sm' %>
-           <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @courses.each do |course| %>
+    <div class="head">
+      <h5><%= course.number %></h5>
+      <h5><%= course.headding %></h5>
+    </div>
+    <div class="photo"><%= attachment_image_tag course, :photo, format: 'jpeg', size: "461x346" %></div>
+    <div class="text">
+      <%= course.text %>
+    </div>
+    <div class="button">
+      <% if current_user == @plan.user %>
+        <%= link_to 'このコースを削除', plan_course_path(@plan,course), method: :delete, data: {confirm: 'コースを削除してよろしいですか？' }, class: 'btn btn-danger btn-sm' %>
+      <% end %>
+    </div>
+<% end %>
