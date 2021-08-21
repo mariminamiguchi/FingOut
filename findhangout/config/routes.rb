@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   
   get 'post', to: 'plans#new'
   
+  get '/plan/hashtag/:name', to: "plans#hashtag"
+  
   resources :users, only: [:index, :show, :create] do
     member do
       get :followings

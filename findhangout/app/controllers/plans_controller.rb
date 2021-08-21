@@ -35,6 +35,12 @@ class PlansController < ApplicationController
     redirect_to root_url
   end
   
+  def hashtag
+    @user = current_user
+    @tag = Hashtag.find_by(hashname: params[:name])
+    @plans = @tag.plans.page(params[:page])
+  end
+  
   private
   def plan_params
     params.require(:plan).permit(:name, :outline, :topphoto)

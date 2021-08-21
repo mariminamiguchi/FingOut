@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_19_083812) do
+ActiveRecord::Schema.define(version: 2021_08_21_145800) do
 
   create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "number"
@@ -31,6 +31,22 @@ ActiveRecord::Schema.define(version: 2021_08_19_083812) do
     t.index ["plan_id"], name: "index_favorites_on_plan_id"
     t.index ["user_id", "plan_id"], name: "index_favorites_on_user_id_and_plan_id", unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "hashtag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "plan_id"
+    t.bigint "hashtag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hashtag_id"], name: "index_hashtag_relations_on_hashtag_id"
+    t.index ["plan_id"], name: "index_hashtag_relations_on_plan_id"
+  end
+
+  create_table "hashtags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "hashname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hashname"], name: "index_hashtags_on_hashname", unique: true
   end
 
   create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -64,6 +80,8 @@ ActiveRecord::Schema.define(version: 2021_08_19_083812) do
   add_foreign_key "courses", "plans"
   add_foreign_key "favorites", "plans"
   add_foreign_key "favorites", "users"
+  add_foreign_key "hashtag_relations", "hashtags"
+  add_foreign_key "hashtag_relations", "plans"
   add_foreign_key "plans", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"

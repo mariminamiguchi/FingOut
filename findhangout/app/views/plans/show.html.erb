@@ -9,7 +9,10 @@
       </div>
       
       <div class="topphoto"><%= attachment_image_tag @plan, :topphoto, format: 'jpeg'%></div>
-      <p id="planoutline"><%= @plan.outline %></p>
+      <p id="planoutline">
+        <!--<%= @plan.outline %>-->
+        <%= render_with_hashtags(@plan.outline) %>
+      </p>
       <div style="clear: left;"><%= render 'courses/courses' %></div>
         <div class="button-area">
           <% if current_user == @plan.user %>
