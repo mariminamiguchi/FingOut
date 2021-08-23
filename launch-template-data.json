@@ -1,0 +1,23 @@
+{
+    "LaunchTemplateName":"increase-all-volume",
+    "LaunchTemplateData": {
+        "BlockDeviceMappings": [
+          {
+            "Ebs": {
+              "DeleteOnTermination": true,
+              "VolumeSize": 50,
+              "VolumeType": "gp2"
+            },
+            "DeviceName": "/dev/xvda"
+          },
+          {
+            "Ebs": {
+              "DeleteOnTermination": true,
+              "VolumeSize": 75,
+              "VolumeType": "gp2"
+            },
+            "DeviceName": "/dev/xvdcz"
+          }          
+        ]
+  }
+}
