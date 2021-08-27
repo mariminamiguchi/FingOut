@@ -1,5 +1,5 @@
 class PlansController < ApplicationController
-  before_action :require_user_logged_in, except: [:index, :show]
+  before_action :require_user_logged_in, except: [:index, :show, :hashtag]
   before_action :correct_user, only: [:destroy]
   
   def index

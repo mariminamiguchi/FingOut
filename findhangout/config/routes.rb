@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'toppages#index'
   
+  get 'sidebar/sidebar1', to: 'sidebar#sidebar1'
+  get 'sidebar/sidebar2', to: 'sidebar#sidebar2'
+  
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'

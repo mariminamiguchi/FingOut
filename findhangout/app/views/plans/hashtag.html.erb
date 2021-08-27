@@ -1,21 +1,29 @@
-<h2>ハッシュタグ #<%= @tag.hashname %></h2>
-
-<% @plans.each_slice(2) do |plans| %>
+<p>ハッシュタグ #<%= @tag.hashname %></p>
+<div class="container">
   <div class="row">
-    <% plans.each do |plan| %>
-      <div class="plan">
-        <a href="<%= plan_path(plan.id) %>">
-          <h5><%= plan.name %></h5>
-          <div class="photospace"><%= attachment_image_tag plan, :topphoto, format: 'jpeg'%></div>
-          <div id="outline"><p><%= plan.outline %></p></div>
-        </a>
-        <div class="by">
-					<p>by<%= link_to plan.user.name, user_path(plan.user) %></p>
-				</div>
-      </div>
-    <% end %>
+    <div id="main" class="col-sm-9">
+      <% @plans.each_slice(2) do |plans| %>
+        <div class="row">
+          <% plans.each do |plan| %>
+            <div class="plan">
+              <a href="<%= plan_path(plan.id) %>">
+                <h5><%= plan.name %></h5>
+                <div class="photospace"><%= attachment_image_tag plan, :topphoto, format: 'jpeg'%></div>
+                <div id="outline"><p><%= plan.outline %></p></div>
+              </a>
+              <div class="by">
+      					<p>by<%= link_to plan.user.name, user_path(plan.user) %></p>
+      				</div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      <%= paginate @plans %>
+    </div>
+    
+    <aside id="sidebar" class="col-sm-3">
+      <p>サイドバー</p>
+    </aside>
   </div>
-<% end %>
-<%= paginate @plans %>
-
+</div>
 

@@ -6,6 +6,6 @@ class ToppagesController < ApplicationController
       @plan = current_user.plans.build # form_with用
       # @plans = current_user.plans.order(id: :desc).page(params[:page]) 
     end
-    
   end
+  
 end

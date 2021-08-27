@@ -1,0 +1,45 @@
+// Place all the styles related to the sidebar controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#mainvisual {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+h6 {
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+
+p {
+  font-size: 14px;
+}
+
+#text {
+  text-align: center;
+}
+
+#image img{
+  width: 100%;
+  margin: 40px 0;
+}
+
+#last {
+  text-align: center;
+}
+
+@media screen and (min-width: 767px) {
+  h3 {
+    font-size: 2.4rem;
+    margin: 20px 5px 100px;
+  }
+  
+  p {
+    font-size: 16px;
+  }
+}

@@ -2,12 +2,12 @@ class Plan < ApplicationRecord
     belongs_to :user
     attachment :topphoto
     
-    has_many :courses
-    has_many :favorites
+    has_many :courses, dependent: :destroy
+    has_many :favorites, dependent: :destroy
     has_many :likers, through: :favorites, source: :user
     
     has_many :hashtag_relations
-    has_many :hashtags, through: :hashtag_relations
+    has_many :hashtags, through: :hashtag_relations, dependent: :destroy
   
   
   # def like(plan)
