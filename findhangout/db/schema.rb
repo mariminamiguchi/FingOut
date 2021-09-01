@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_21_145800) do
+ActiveRecord::Schema.define(version: 2021_08_29_071345) do
 
   create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "number"
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 2021_08_21_145800) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "profile"
+    t.string "profile_image_id"
   end
 
   add_foreign_key "courses", "plans"

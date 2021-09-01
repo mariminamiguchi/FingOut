@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   
   get '/plan/hashtag/:name', to: "plans#hashtag"
   
-  resources :users, only: [:index, :show, :create] do
+  resources :users, only: [:index, :show, :create, :edit, :update, :destroy] do
     member do
       get :followings
       get :followers
@@ -23,11 +23,11 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :plans, only: [:index, :show, :create, :destroy] do
+  resources :plans, only: [:index, :show, :create, :edit, :update, :destroy] do
     get 'courses_post', to: 'courses#new'
     get :likers
     post 'courses_post', to: 'courses#create'
-    resources :courses, only: [:index, :destroy]
+    resources :courses, only: [:index, :edit, :update, :destroy]
   end
   
   resources :relationships, only: [:create, :destroy]

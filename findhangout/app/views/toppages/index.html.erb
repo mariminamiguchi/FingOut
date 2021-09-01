@@ -1,4 +1,4 @@
-<%= image_tag 'mainvisual.png', class: 'mainvisual' %>
+<%= image_tag 'mainvisual.jpg', class: 'mainvisual' %>
 
 <div class="container">
   <div class="row">
@@ -6,10 +6,7 @@
       <%= render 'plans/plans', plans: @plans %>
     </div>
     <aside id="sidebar" class="col-md-3">
-      <div>
-        <a href="sidebar/sidebar1"><%= image_tag 'sidebar(1).jpg', class: 'sidebar_content' %></a>
-        <a href="sidebar/sidebar2"><%= image_tag 'sidebar(2).jpg', class: 'sidebar_content' %></a>
-      </div>
+      <%= render 'layouts/sidebar' %>
     </aside>
   </div>
 </div>

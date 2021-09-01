@@ -99,7 +99,10 @@ h1 {
 }
 
 .top-button-area {
-    text-align: right;
+    margin-bottom: 5px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
 }
 
 .button-area {

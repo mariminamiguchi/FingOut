@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
   before_action :require_user_logged_in, except: [:index, :show, :hashtag]
-  before_action :correct_user, only: [:destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   
   def index
     @plans = Plan.all
@@ -25,6 +25,19 @@ class PlansController < ApplicationController
       @plans = current_user.plans.order(id: :desc).page(params[:page])
       flash.now[:danger] = 'プランの投稿に失敗しました。'
       render 'toppages/index'
+    end
+  end
+  
+  def edit
+    @plan = Plan.find(params[:id])
+  end
+  
+  def update
+    @plan = Plan.find(params[:id])
+    if @plan.update(plan_params)
+      redirect_to action: :show, id: @plan.id
+    else
+      render action: :edit
     end
   end
 

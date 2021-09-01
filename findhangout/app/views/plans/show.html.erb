@@ -5,7 +5,8 @@
         <h1 style="margin: 0 auto;"><%= @plan.name %></h1>
       </div>
       <div class="top-button-area">
-        <%= render 'favorites/like_button', plan: @plan %>
+        <p>by<%= link_to @plan.user.name, user_path(@plan.user) %></p>
+        <div><%= render 'favorites/like_button', plan: @plan %></div>
       </div>
       
       <div class="topphoto"><%= attachment_image_tag @plan, :topphoto, format: 'jpeg'%></div>
@@ -18,13 +19,14 @@
             <%= link_to 'コースを追加', plan_courses_post_path(@plan.id), class: 'btn btn-outline-primary' %>
           <% end %>
           <% if current_user == @plan.user %>
+            <%= link_to 'プランを編集', edit_plan_path(@plan.id), method: :get, class: 'btn btn-outline-warning' %>
             <%= link_to 'プランを削除', plan_path(@plan.id), method: :delete, data: { confirm: 'プランを削除してよろしいですか?' }, class: 'btn btn-outline-danger' %>
           <% end %>
         </div>
       </div>
       
       <aside id="sidebar" class="col-md-3">
-        <p>サイドバー</p>
+        <%= render 'layouts/sidebar' %>
       </aside>
   </div>
 </div>

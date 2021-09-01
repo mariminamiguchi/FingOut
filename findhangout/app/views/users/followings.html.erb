@@ -1,22 +1,38 @@
 <div class="row">
-  <aside class="col-sm-2">
-    <div class="text-center" style="margin: 20px;">
-      <img class="rounded-circle img-fluid" src="<%= gravatar_url(@user, { size: 250 }) %>" alt="">
+  <div class="col-sm-9">
+    <div class="profile">
+      <div class="profile_left">
+        <div>
+          <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: 'default.jpg', id: 'profile_image' %>
+        </div>
+        <% if current_user == @user%>
+          <%= link_to '投稿', post_path, class: 'btn btn-primary btn-block' %>
+        <% else %>
+          <%= render 'relationships/follow_button', user: @user %>
+        <% end %>
+      </div>
+      <div class="profile_right">
+        <div style="display: flex;">
+          <h3 style="text-align: center; margin-bottom: 20px;"><%= @user.name %>
+            <%= link_to edit_user_path(@user.id), method: :get, class: 'btn btn-outline-warning' do %>
+              <i class="fas fa-cog"></i>
+            <% end %>
+          </h3>
+        </div>
+        <P><%= @user.profile %></P>
+      </div>
     </div>
-        <h3 style="text-align: center; margin-bottom: 20px;"><%= @user.name %></h3>
-    <% if current_user == @user%>
-      <%= link_to 'プランを投稿する', post_path, class: 'btn btn-primary btn-block' %>
-    <% else %>
-      <%= render 'relationships/follow_button', user: @user %>
-    <% end %>
-  </aside>
-  <div class="col-sm-10">
+    
     <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Plans  <span class="badge badge-secondary"><%= @count_plans %></span></a></li>
-      <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>">Followings  <span class="badge badge-secondary"><%= @count_followings %></span></a></li>
-      <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>">Followers  <span class="badge badge-secondary"><%= @count_followers %></span></a></li>
-      <li class="nav-item"><a href="<%= likings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likings_user_path(@user)) %>">お気に入り<span class="badge badge-secondary"><%= @count_likings %></span></a></li>
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>"><p class="tab">プラン</p><span class="badge badge-secondary"><%= @count_plans %></span></a></li>
+      <li class="nav-item"><a href="<%= followings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followings_user_path(@user)) %>"><p class="tab">フォロー</p><span class="badge badge-secondary"><%= @count_followings %></span></a></li>
+      <li class="nav-item"><a href="<%= followers_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(followers_user_path(@user)) %>"><p class="tab">フォロワー</p><span class="badge badge-secondary"><%= @count_followers %></span></a></li>
+      <li class="nav-item"><a href="<%= likings_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likings_user_path(@user)) %>"><p class="tab">お気に入り</p><span class="badge badge-secondary"><%= @count_likings %></span></a></li>
     </ul>
     <%= render 'users', users: @followings %>
   </div>
+  
+  <aside class="col-sm-3">
+    <%= render 'layouts/sidebar' %>
+  </aside>
 </div>

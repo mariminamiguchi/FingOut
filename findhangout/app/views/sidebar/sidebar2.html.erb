@@ -1,2 +1,68 @@
-<h1>Sidebar#sidebar2</h1>
-<p>Find me in app/views/sidebar/sidebar2.html.erb</p>
+<%= image_tag 'sidebar(2).jpg', id: 'mainvisual' %>
+<div id="text-top">
+  <h3>FingOutでプランを投稿してみましょう！</h3>
+  <h6>
+    あなたおすすめのスポットを、みんなとShare!
+  </h6>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div style="margin: auto 0;" class="col-sm-6">
+      <h6>1.投稿ボタンを押す</h6>
+      <p>マイプロフィールにある「投稿」ボタンを押します。</p>
+    </div>
+    <div id="image" class="col-sm-6">
+      <%= image_tag 'toukoustep(1).png' %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div style="margin: auto 0;" class="col-sm-6">
+      <h6>2.プランの概要を入力する</h6>
+      <p>
+        プラン名、プランの概要を入力、トップ画像を選択してください。<br>
+        概要の欄にはハッシュタグ「#」をつけることができます。<br>
+        ハッシュタグ検索もできるので、ご活用ください！
+      </p>
+    </div>
+    <div id="image" class="col-sm-6">
+      <%= image_tag 'toukoustep(2).png' %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div style="margin: auto 0;" class="col-sm-6">
+      <h6>3.コースを追加を押す</h6>
+      <p>
+        先ほど入力したプランの概要が登録され、その下に「コースを追加」ボタンが出てくるので、それを押してください。<br>
+      </p>
+    </div>
+    <div id="image" class="col-sm-6">
+      <%= image_tag 'toukoustep(3).png' %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div style="margin: auto 0;" class="col-sm-6">
+      <h6>4.コースを入力する</h6>
+      <p>
+        コース番号、見出し、説明を入力、画像を選択してください。
+      </p>
+    </div>
+    <div id="image" class="col-sm-6">
+      <%= image_tag 'toukoustep(4).png' %>
+    </div>
+  </div>
+  
+  <div>
+    <p>
+      以上の要領でコースを追加していってください。<br>
+      プランの概要を編集・削除したい場合は、「コースを追加」ボタンの隣にある「プランを編集」「プランを削除」ボタンを押してください。<br>
+      コースを編集・削除したい場合は、コースそれぞれの右下にある「編集」「削除」ボタンを押してください。該当のコースが編集・削除できます。<br>
+      これらのボタンは、プランの作成者にしか表示されません。
+    </p>
+    <h3>さあ！あなたも投稿してみましょう！</h3>
+  </div>
+  
+</div>

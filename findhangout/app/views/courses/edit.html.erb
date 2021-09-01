@@ -1,0 +1,27 @@
+<div class="col-sm-6 offset-sm-3">
+  <%= form_with(model: [@plan, @course], local: true, action: :update) do |f| %>
+ 
+
+    <div class="form-group">
+      <%= f.label :number, 'コース番号' %>
+      <%= f.text_field :number, :placeholder =>"#{@course.number}", class: 'form-control' %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :headding, '見出し' %>
+      <%= f.text_field :headding, :placeholder =>"#{@course.headding}", class: 'form-control' %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :text, '説明' %>
+      <%= f.text_area :text, :placeholder =>"#{@course.text}", class: 'form-control' %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :photo, '画像' %><br>
+      <%= f.attachment_field :photo %>
+    </div>
+    
+    <%= f.submit 'コースを編集', class: 'btn btn-primary btn-block' %>
+  <% end %>
+</div> 

@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_action :require_user_logged_in, except: [:index, :show]
-  before_action :correct_user, only: [:destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   
   def index
     @courses = Course.order(id: :desc)
@@ -22,6 +22,19 @@ class CoursesController < ApplicationController
       @course = courses.order(id: :desc)
       flash.now[:danger] = 'コースの設定に失敗しました。'
       render 'toppages/index'
+    end
+  end
+  
+  def edit
+    @course = Course.find(params[:id])
+  end
+  
+  def update
+    @course = Course.find(params[:id])
+    if @course.update(course_params)
+      redirect_to plan_path(id: @plan)
+    else
+      render action: :edit
     end
   end
 

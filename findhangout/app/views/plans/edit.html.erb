@@ -1,0 +1,21 @@
+<div class="col-sm-6 offset-sm-3">
+    <%= form_with(model: @plan, local: true, action: :update) do |f| %>
+      
+      <div class="form-group">
+        <%= f.label :name, 'プラン名' %>
+        <%= f.text_field :name, :placeholder =>"#{@plan.name}", class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :outline, '概要' %>
+        <%= f.text_area :outline, :placeholder =>"#{@plan.outline}", class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :topphoto, 'トップ画像' %><br>
+        <%= f.attachment_field :topphoto %>
+      </div>
+      
+      <%= f.submit '編集', class: 'btn btn-primary btn-block' %>
+    <% end %>
+</div>

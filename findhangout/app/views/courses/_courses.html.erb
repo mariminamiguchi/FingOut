@@ -5,11 +5,12 @@
     </div>
     <div class="photo"><%= attachment_image_tag course, :photo, format: 'jpeg', size: "461x346" %></div>
     <div class="text">
-      <%= course.text %>
+      <%= safe_join(course.text.split("\n"),tag(:br)) %>
     </div>
     <div class="button">
       <% if current_user == @plan.user %>
-        <%= link_to 'このコースを削除', plan_course_path(@plan,course), method: :delete, data: {confirm: 'コースを削除してよろしいですか？' }, class: 'btn btn-danger btn-sm' %>
+        <%= link_to '編集', edit_plan_course_path(@plan,course), method: :get, class: 'btn btn-warning btn-sm' %>
+        <%= link_to '削除', plan_course_path(@plan,course), method: :delete, data: {confirm: 'コースを削除してよろしいですか？' }, class: 'btn btn-danger btn-sm' %>
       <% end %>
     </div>
 <% end %>
