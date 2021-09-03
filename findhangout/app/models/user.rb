@@ -16,6 +16,8 @@ class User < ApplicationRecord
   
   attachment :profile_image
   
+  validates_acceptance_of :agreement, allow_nil: false, on: :create
+  
   
   def follow(other_user)
     unless self == other_user

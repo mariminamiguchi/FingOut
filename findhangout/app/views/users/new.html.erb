@@ -33,6 +33,13 @@
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
       
+      <div class="form_group">
+        <p>
+          <%= f.check_box :agreement, :as => :boolean, checked:false %>
+          <%= link_to '利用規約', '/agreement' %>と<%= link_to 'プライバシーポリシー', '/privacy_policy' %>に同意します
+        </p>
+      </div>
+      
       <%= f.submit 'ユーザー登録', class: 'btn btn-primary btn-block' %>
     <% end %>
   </div>

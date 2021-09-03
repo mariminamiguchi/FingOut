@@ -22,8 +22,16 @@
 footer {
  background-color: #F8F9Fa;
  margin-top: 100px;
- height: 60px;
+ height: 100px;
  text-align: right;
+}
+
+footer .footer_content_space {
+ display: flex;
+}
+
+footer .footer_content {
+ color: black;
 }
 
 footer small {

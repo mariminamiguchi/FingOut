@@ -14,12 +14,12 @@
       <div class="profile_right">
         <div style="display: flex;">
           <h3 style="text-align: center; margin-bottom: 20px;"><%= @user.name %>
-            <%= link_to edit_user_path(@user.id), method: :get, class: 'btn btn-outline-warning' do %>
+            <%= link_to edit_user_path(@user.id), method: :get, class: 'btn btn-outline-secondary' do %>
               <i class="fas fa-cog"></i>
             <% end %>
           </h3>
         </div>
-        <P><%= @user.profile %></P>
+        <p><%= safe_join(@user.profile.split("\n"),tag(:br)) %></p>
       </div>
     </div>
     

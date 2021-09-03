@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'sidebar/sidebar1', to: 'sidebar#sidebar1'
   get 'sidebar/sidebar2', to: 'sidebar#sidebar2'
   
+  get '/agreement', to: 'toppages#agreement'
+  get '/privacy_policy', to: 'toppages#privacy_policy'
+  
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
