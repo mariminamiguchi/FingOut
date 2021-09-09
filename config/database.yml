@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: findhangout_production
   username: findhangout
   password: <%= ENV['FINDHANGOUT_DATABASE_PASSWORD'] %>
